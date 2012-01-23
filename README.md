@@ -1,2 +1,4 @@
 #text-jso
-If you are a pentester, you surely know excellent [HTML5 Security Cheatsheet](http://heideri.ch/jso/). Most of attack vectors publishd there make perfect test cases for a pentest. However the site is generated on flight using JavaScript from XML files stored at Google Code, so you can't use them directly. This HTML contains JavaScript that takes these XML files and outputs a plaintext list of vectors, one in a line, that can be used in tools like BurpSuite. 
+If you are a pentester, you surely know excellent [HTML5 Security Cheatsheet](http://heideri.ch/jso/). Most of attack vectors publishd there make perfect test cases for a pentest. However the site is generated on flight using JavaScript from XML files stored at Google Code, so you can't use them directly. This HTML contains JavaScript that takes these XML files and outputs a plaintext list of vectors, one in a line, that can be used in tools like BurpSuite.
+
+Sample output is also attached in _jso.txt_ file. Note that the JSO website is updated with new vectors so you should regenerate the text file from time to time.
