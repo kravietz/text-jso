@@ -1,28 +1,27 @@
-
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8" />
         <title>HTML5 Security Cheatsheet</title>
         <!-- major includes -->
-        <script type="text/javascript" src="http://html5security.googlecode.com/svn/trunk/items.json"></script>
-        <script type="text/javascript" src="http://html5security.googlecode.com/svn/trunk/categories.json"></script>
-        <script type="text/javascript" src="http://html5security.googlecode.com/svn/trunk/payload.json"></script>
+        <script type="text/javascript" src="http://heideri.ch/jso/items.js"></script>
+        <script type="text/javascript" src="http://heideri.ch/jso//categories.js"></script>
+        <script type="text/javascript" src="http://heideri.ch/jso//payloads.js"></script>
     <script>
 	document.write("<pre>");
 	var sanitize = function(input){
         output = input.replace(/&/gm, '&amp;')
-            .replace(/</gm, '&lt;').replace(/>/gm, '&gt;').replace(/\n/gm,'').replace(/\r/gm,'');              
+            .replace(/</gm, '&lt;').replace(/>/gm, '&gt;').replace(/\n/gm,'').replace(/\r/gm,'');
         return output;
     };
 	for (var item in items) {
 		for (var payload in payloads) {
             var regex = new RegExp('%' + payload + '%', 'gm');
             items[item].data = items[item].data.replace(regex, payloads[payload]);
-            if(items[item].raw) { 
-            	items[item].raw = items[item].raw.replace(regex, payloads[payload]);                        
+            if(items[item].raw) {
+            	items[item].raw = items[item].raw.replace(regex, payloads[payload]);
             }
-         
+
 		}
 		if(items[item].raw) {
 			document.write(sanitize(items[item].raw));
@@ -35,6 +34,6 @@
 	</script>
     </head>
     <body>
-    
+
     </body>
 </html>
